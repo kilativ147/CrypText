@@ -6,11 +6,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20230926225514">
+  <link rel="stylesheet" href="css/style.min.css?_v=20230928013002">
   <title>Enigma ▪ Main page</title>
 </head>
 
-<body>
+<body style="background: #ccc">
   <header class="header">
   <!-- <picture><source srcset="img/avatar.webp" type="image/webp"><img src="img/avatar.png" alt=""></picture> -->
 </header>
@@ -27,76 +27,23 @@
       </div>
       <canvas id="canvas1" style="border: 3px solid #555;width: 200px;height: 200px;">
       </canvas>
-      <a id="canvas-download"href="#" download>Download</a>
-
+      <button type="button" id="canvas-reset" style="display:none">Reset</button>
+      <a id="canvas-download"href="#" download="canvas.png" style="display: block">Download</a>
+      <label for="text-to-crypto" style="display: block">
+        Введіть текст
+        <input id="input-text"type="text">
+        <button id="text-encrypt" type="button">encrypt</button>
+      </label>
+      
     </div>
 
   </main>
   <footer class="footer"></footer>
 
-  <!-- <script src="js/app.min.js?_v=20230926225514"></script> -->
+  <script src="js/app.min.js?_v=20230928013002"></script>
   <script>
-    // const inputImg = document.getElementById('upload-img')
-    const inputFile = document.getElementById('input-file')
-    const canvasDownload = document.getElementById('canvas-download')
     
-    //Realtime update img
-    inputFile.onchange = () => {
-      updCanvas(URL.createObjectURL(inputFile.files[0]))
-      // inputImg.src = URL.createObjectURL(inputFile.files[0])
-      // inputImg.src = inputFile.value;   
-      // let inputFile = document.getElementById('input-file')
-    }
-    
-    //temp
-    updCanvas('img/avatar.png');
-    
-    //Realtime update canvas on img input
-    function updCanvas(src) {
-      const canvas = document.getElementById('canvas1')
-      const ctx = canvas.getContext('2d')
-      canvas.width = 200
-      canvas.height = 200
-      const image1 = new Image();
-      image1.src = src
-            
-      image1.addEventListener('load', () => {
-        ctx.drawImage(image1, 0, 0, canvas.width, canvas.height)
-        const scannedImage = ctx.getImageData(0, 0, canvas.width, canvas.height)
-        
-        //Editing image
-        const scannedData = scannedImage.data
-        
-        let imgPixels = scannedData.length / 4        
-        //Text length
-        let step = imgPixels / 80
-        
-        for (let i = 0; i < scannedData.length; i += step*4) {
-          //even 4th element in scannedData - begin of RGBA value
-          let rgba = [];
-          for (let j = 0; j < 4; j++) {
-            rgba.push(scannedData[i + j])
-          }
 
-          //Manipulation
-          //-GrayMode
-          rgba = rgba.map((item =>
-           item = rgba.reduce((a, b) => a + b) / rgba.length))   
-
-          //Return changes
-          for (let k = 0; k < 4; k++) {
-            scannedData[i + k] = rgba[k]
-          }
-        }
-
-        //Rewrite picture
-        scannedImage.data = scannedData
-        ctx.putImageData(scannedImage, 0, 0)
-        //Make link to download
-        canvasDownload.href = canvas.toDataURL()
-      })
-
-    }
   </script>
 </body>
 
