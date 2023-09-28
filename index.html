@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20230928013002">
+  <link rel="stylesheet" href="css/style.min.css?_v=20230929003116">
   <title>Enigma ▪ Main page</title>
 </head>
 
@@ -25,22 +25,28 @@
           <input type="file" accept="image/jpeg, image/jpg, image/png" id="input-file" required>
         </div>
       </div>
-      <canvas id="canvas1" style="border: 3px solid #555;width: 200px;height: 200px;">
+      <canvas id="canvas1" style="border: 3px solid #555;width: 200px;height: 200px;object-fit: contain;">
       </canvas>
       <button type="button" id="canvas-reset" style="display:none">Reset</button>
-      <a id="canvas-download"href="#" download="canvas.png" style="display: block">Download</a>
-      <label for="text-to-crypto" style="display: block">
+      <a id="canvas-download"href="#" download="canvas.png" style="display: none">Download</a>
+      <button id="canvas-copy" type="button" style="display: none">Копіювати до буферу</button>
+      <label id='text-to-crypto-label'for="input-text" style="display: none">
         Введіть текст
-        <input id="input-text"type="text">
-        <button id="text-encrypt" type="button">encrypt</button>
+        <input id="input-text"type="text" maxlength="100">
       </label>
+      <label id='crypto-key-label'for="input-key" style="display: none">
+        Введіть ключ або згенеруйте новий
+        <input id="input-key"type="text" style="display:block">
+        <button id="key-generate" type="button">Generate key</button>
+      </label>
+      <button id="text-encrypt" type="button" style="display: none">encrypt</button>
       
     </div>
 
   </main>
   <footer class="footer"></footer>
 
-  <script src="js/app.min.js?_v=20230928013002"></script>
+  <script src="js/app.min.js?_v=20230929003116"></script>
   <script>
     
 
