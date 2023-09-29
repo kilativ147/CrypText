@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20230929003116">
+  <link rel="stylesheet" href="css/style.min.css?_v=20230930022727">
   <title>Enigma ▪ Main page</title>
 </head>
 
@@ -15,40 +15,64 @@
   <!-- <picture><source srcset="img/avatar.webp" type="image/webp"><img src="img/avatar.png" alt=""></picture> -->
 </header>
   <main>
+    <section class="encryption">
 
-    <div class="hero">
-      <div class="card">
-        <!-- <img width=300 height=300 src="img/avatar.png" alt="Decoding image" id="upload-img" style="
-          object-fit: cover; width:fit-content"> -->
-        <div>
-          <!-- <label for="input-file">Update image</label> -->
-          <input type="file" accept="image/jpeg, image/jpg, image/png" id="input-file" required>
-        </div>
-      </div>
-      <canvas id="canvas1" style="border: 3px solid #555;width: 200px;height: 200px;object-fit: contain;">
-      </canvas>
-      <button type="button" id="canvas-reset" style="display:none">Reset</button>
-      <a id="canvas-download"href="#" download="canvas.png" style="display: none">Download</a>
-      <button id="canvas-copy" type="button" style="display: none">Копіювати до буферу</button>
-      <label id='text-to-crypto-label'for="input-text" style="display: none">
-        Введіть текст
-        <input id="input-text"type="text" maxlength="100">
-      </label>
-      <label id='crypto-key-label'for="input-key" style="display: none">
-        Введіть ключ або згенеруйте новий
-        <input id="input-key"type="text" style="display:block">
-        <button id="key-generate" type="button">Generate key</button>
-      </label>
-      <button id="text-encrypt" type="button" style="display: none">encrypt</button>
-      
-    </div>
+      <article class="encryption__article toimg">
+        <label for="toImg_input-file" class="toimg__img-label encryption__img-label">
+          Select the 'Image'
+          <input id="toImg_input-file"  type="file" accept="image/jpeg, image/jpg, image/png" required
+            class="totext__img-input encryption__img-input">
+        </label>
+        <canvas id="toImg_canvas" class="toimg__canvas encryption__canvas"></canvas>
+        <button type="button" id="toImg_canvas-reset" class="toimg__reset-button encryption__reset-button"
+          style="display:none">Reset</button>
+        <a id="toImg_canvas-download" href="#" download="canvas.png" class="toimg__download-link"
+          style="display: none">Download</a>
+        <button id="toImg_canvas-copy" type="button" class="toimg__copy-button" style="display: none">Копіювати до
+          буферу</button>
+        <label id='toImg_text-to-crypto-label' for="input-text" class="toimg__text-label encryption__stage-label"
+          style="display: none">
+          Введіть текст
+          <input id="toImg_input-text" type="text" maxlength="100" class="toimg__text-input encryption__stage-input">
+        </label>
+        <label id='toImg_crypto-key-label' for="input-key" class="toimg__key-label encryption__stage-label"
+          style="display: none">
+          Введіть ключ або згенеруйте новий
+          <input id="toImg_input-key" type="text" class="toimg__key-input encryption__stage-input" style="display:block">
+          <button id="toImg_key-generate" type="button" class="toimg__key-button encryption__stage-button">Generate
+            key</button>
+        </label>
+        <button id="toImg_text-encrypt" type="button" class="toimg__encrypt-button encryption__stage-button confirm-button"
+          style="display: none">encrypt</button>
 
+      </article>
+      <article class="encryption__article totext">
+        <label for="toText_input-file" class="totext__img-label encryption__img-label">
+          Select the 'Image'
+          <input type="file" accept="image/jpeg, image/jpg, image/png" id="toText_input-file" required
+            class="totext__img-input encryption__img-input">
+        </label>
+        <canvas id="toText_canvas" class="totext__canvas encryption__canvas"
+          style="border: 3px solid #555;width: 200px;height: 200px;object-fit: contain;"></canvas>
+        <button type="button" id="toText_canvas-reset" class="totext__reset-button encryption__reset-button"
+          style="display:none">Reset</button>
+        <label id='toText_crypto-key-label' for="toText_input-key" class="totext__key-label encryption__stage-label"
+          style="display: none">
+          Введіть ключ
+          <input id="toText_input-key" type="text" class="totext__key-input encryption__stage-input"
+            style="display:block">
+          <button id="toText_key-confirm" type="button"
+            class="totext__key-button encryption__stage-button confirm-button">Confirm</button>
+        </label>
+        <p id="toText_message" class="totext__message"></p>
+      </article>
+    </section>
   </main>
-  <footer class="footer"></footer>
+  <footer class="footer"></footer> 
 
-  <script src="js/app.min.js?_v=20230929003116"></script>
+  <script src="js/app.min.js?_v=20230930022727"></script>
   <script>
-    
+
 
   </script>
 </body>
