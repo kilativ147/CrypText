@@ -1,0 +1,236 @@
+//@ Canvas area
+const toImgInputFile = document.getElementById('toImg_input-file')
+const toImgCanvas = document.getElementById('toImg_canvas');
+const toImgCtx = toImgCanvas.getContext('2d');
+// let imgBeforeEncrypting
+let toImgScannedImage
+//@ Buttons for
+const toImgCanvasReset = document.getElementById('toImg_canvas-reset')
+
+//@ Input text than become encrypting
+const toImgTextToCryptoArea = document.getElementById('toImg_text-to-crypto-label');
+const toImgInputText = document.getElementById('toImg_input-text');
+
+//@ Input Crypto Key
+const toImgCryptoKeyLabel = document.getElementById('toImg_crypto-key-label')
+const toImgCryptoKey = document.getElementById('toImg_input-key')
+const toImgCryptoKeyGenegate = document.getElementById('toImg_key-generate')
+
+//@ Encrypting the text
+const toImgTextEncrypt = document.getElementById('toImg_text-encrypt')
+
+//@ Download the result
+const toImgCanvasDownload = document.getElementById('toImg_canvas-download')
+const toImgCanvasCopy = document.getElementById('toImg_canvas-copy')
+
+
+
+//@ equired image size
+const requiredWidth = 512
+const requiredHeight = 512
+
+//@ Number of symbols to rewrite picture
+const minToImgInputText = 5
+
+//@Crypto things
+let cryptoKeyLength = 8 //Length of crypto key
+let asciiArray = [] //array of crypto text
+
+//@ Amount of encrypted symbols
+let symbols
+
+//@ Reset the picture
+toImgCanvasReset.addEventListener('click', () => toCryptoStage(0));
+
+//@ Input text for crypto
+toImgInputText.addEventListener('input', () => {
+  let characters = toImgInputText.value
+  if (characters.charCodeAt(characters.length - 1) > 150) {
+    toImgInputText.value = characters.slice(0, -1)
+    console.log('Недопустимий символ!');
+  }
+  if (toImgInputText.value.length >= minToImgInputText) toCryptoStage(2)
+  else toCryptoStage(1)
+})
+
+//@ Make crypto key
+toImgCryptoKey.addEventListener('input', () => {
+  if (toImgCryptoKey.value.length == cryptoKeyLength) toCryptoStage(3)
+  else toCryptoStage(2)
+})
+toImgCryptoKeyGenegate.addEventListener('click', () => {
+  toImgCryptoKey.value = generateKey(cryptoKeyLength)
+})
+
+//@ Make encrypted array
+toImgTextEncrypt.addEventListener('click', () => encryptTextToImg(toImgCryptoKey.value));
+
+//@ Copy encrypted image to buffer
+toImgCanvasCopy.addEventListener('click', () => {
+  toImgCanvas.toBlob(function (blob) {
+    const item = new ClipboardItem({ "image/png": blob });
+    navigator.clipboard.write([item]).then(function () {
+      alert('Image copied to clipboard!');
+    }).catch(function (err) {
+      console.error('Error:', err);
+    });
+  }, 'image/png');
+});
+
+
+
+//@ Realtime update img
+toImgInputFile.onchange = () => {
+  const imgBeforeEncrypting = new Image();
+  imgBeforeEncrypting.src = URL.createObjectURL(toImgInputFile.files[0])
+
+  imgBeforeEncrypting.addEventListener('load', () => {
+    toImgCanvas.width = imgBeforeEncrypting.width;
+    toImgCanvas.height = imgBeforeEncrypting.height;
+    // canvas.width = 100;
+    // canvas.height = 100;
+
+    if (imgBeforeEncrypting.width >= requiredWidth && imgBeforeEncrypting.height >= requiredHeight) {
+      toCryptoStage(1)
+      toImgCtx.drawImage(imgBeforeEncrypting, 0, 0, toImgCanvas.width, toImgCanvas.height);
+      toImgScannedImage = toImgCtx.getImageData(0, 0, toImgCanvas.width, toImgCanvas.height);
+    } else {
+      toCryptoStage(0)
+    }
+  })
+}
+
+//@ Statement of TextToImage function
+function toCryptoStage(stage) {
+  //Upload correct image -> Input text
+  if (stage >= 1) {
+    toImgCanvasReset.style.display = 'block';
+    toImgTextToCryptoArea.style.display = 'block';
+  } else {
+    //Upload not correct image or it was reset -> all value cleared, input areas and buttons hide
+    toImgInputFile.value = '';
+    toImgCtx.clearRect(0, 0, toImgCanvas.width, toImgCanvas.height)
+    toImgInputText.value = ''
+    toImgCryptoKey.value = ''
+    asciiArray.length = 0
+    toImgCanvasReset.style.display = 'none'
+    toImgTextToCryptoArea.style.display = 'none'
+  }
+  //Text was writen and length enought-> show input/generate cryptoKey
+  if (stage >= 2) {
+    toImgCryptoKeyLabel.style.display = 'block'
+  } else {
+    toImgCryptoKeyLabel.style.display = 'none'
+    toImgCryptoKey.value = ''
+  }
+  //Correct CryptoKey was insert -> show button to encryp the text
+  if (stage >= 3) {
+    toImgTextEncrypt.style.display = 'block'
+  } else {
+    toImgTextEncrypt.style.display = 'none'
+  }
+  //Button was clicked -> Generate new encrypted image, show download and copy buttons
+  if (stage == 4) {
+    toImgCanvasDownload.style.display = 'block'
+    toImgCanvasCopy.style.display = 'block'
+    updToImgCanvas(asciiArray)
+  } else {
+    toImgCanvasDownload.style.display = 'none'
+    toImgCanvasCopy.style.display = 'none'
+  }
+}
+
+//Generate key for encrypting
+function generateKey(keyLength) {
+  // Symbols that can be in KEY
+  const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-!@#$%&*";
+
+  let result = "";
+  //We find 2 random characters whose ASCII sum will be equal to the length of the text
+  let found = false;
+  let Requiredlength = toImgInputText.value.length + 100
+  do {
+    const min = 48;
+    const max = 123;
+    let i1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    let i2 = Requiredlength - i1
+    if (i2 > min && i2 < max) {
+      found = true
+      result += String.fromCharCode(i1) + String.fromCharCode(i2)
+    }
+  } while (!found)
+
+
+  //Adding 6 random character to calculate the value by which the ASCII text will deviate
+  for (let i = 0; i < keyLength - 2; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length)
+    result += charset[randomIndex]
+  }
+  console.log(result)
+  toCryptoStage(3)
+  return result
+}
+
+//Generate encrypted array
+function encryptTextToImg(key) {
+
+
+  ////Length of text
+  ////let l = key.slice(0,2)
+  //Decoding key - taking code to calculating 'value'
+  let textKey = key.slice(2)
+
+  //Calculating the value by which the ASCII text will deviate
+  let cryptoValue = []
+  for (let i = 0; i < textKey.length; i++) {
+    i % 2 == 0 ? cryptoValue.push(textKey.charCodeAt(i)) : cryptoValue.push('-' + textKey.charCodeAt(i))
+  }
+  cryptoValue = Math.abs(cryptoValue
+    .map(item => Math.floor(Number(item) * 0.5))
+    .reduce((a, b) => a + b)
+  )
+  cryptoValue >= 100 ? cryptoValue = 100 : cryptoValue
+
+  //String to array
+  asciiArray.length = 0
+  let text = toImgInputText.value
+  for (let i = 0; i < text.length; i++) {
+    let ascii = text.charCodeAt(i) + cryptoValue;
+    asciiArray.push(ascii)
+  }
+  symbols = asciiArray.length
+  toCryptoStage(4)
+}
+
+
+//@ Realtime update canvas on img input
+function updToImgCanvas(keyA) {
+  console.log(keyA);
+  //Taking array to change
+  const scannedData = toImgScannedImage.data;
+  //Calculate how many pixels should be edited
+  let imgPixels = scannedData.length
+  let step = Math.floor(imgPixels / symbols)
+  let a = 0
+  for (let i = 0; i < scannedData.length; i += step) {
+    // scannedData[i] = 0              //R
+    // scannedData[i + 1] = 0          //G
+    // scannedData[i + 2] = 0          //B
+    scannedData[i + 3] = keyA[a]       //A
+    a++
+    // console.log(keyA[a]);
+
+  }
+
+  // Rewrite picture data
+  const newToImgScannedImage = new ImageData(
+    new Uint8ClampedArray(scannedData),
+    toImgCanvas.width,
+    toImgCanvas.height
+  );
+  toImgCtx.putImageData(newToImgScannedImage, 0, 0)
+
+  // Make name and link to download
+  toImgCanvasDownload.href = toImgCanvas.toDataURL()
+  toImgCanvasDownload.download = toImgInputFile.files[0].name
+}

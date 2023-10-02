@@ -131,3 +131,14 @@ h6 {
 .encryption__stage-input {
   display: block;
 }
+
+.totext__message {
+  display: none;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  background: #f1f0f0;
+  border: 3px solid #aaa;
+}
