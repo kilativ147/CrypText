@@ -6,74 +6,194 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231005231555">
-  <title>Enigma ▪ Main page</title>
+  <link rel="stylesheet" href="css/style.min.css?_v=20231012014814">
+  <title>CrypText ▪ Main page</title>
 </head>
 
 <body style="background: #ccc">
   <header class="header">
   <!-- <picture><source srcset="img/avatar.webp" type="image/webp"><img src="img/avatar.png" alt=""></picture> -->
+  <div class="conteiner">
+    <div class="header__inner">
+      <div class="logo">
+        <a class="logo__link" href="#">
+          <img class="logo__img" src="" alt="">
+        </a>
+      </div>
+      <nav class="menu">
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <p class="menu__link-covered">How</p>does it work
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <p class="menu__link-covered">Why</p>it's useful
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <p class="menu__link-covered">Try</p>it yourself
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <p class="menu__link-covered">Contact</p>with author
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="button__try header__button">Try now!</div>
+    </div>
+  </div>
 </header>
   <main>
-    <section class="encryption">
-
-      <article class="encryption__article toimg">
-        <!-- for="toImg_input-file" -->
-        <label  class="toimg__img-label encryption__img-label" id="toImg_inputFile-area">
-          Select or Drag&Drop the 'Image' 
-        </label>
-          <input id="toImg_input-file" type="file" accept="image/jpeg, image/jpg, image/png" required
-            class="totext__img-input encryption__img-input">
-        <canvas id="toImg_canvas" class="toimg__canvas encryption__canvas"></canvas>
-        <button type="button" id="toImg_canvas-reset" class="toimg__reset-button encryption__reset-button"
-          style="display:none">Reset</button>
-        <a id="toImg_canvas-download" href="#" download="canvas.png" class="toimg__download-link"
-          style="display: none">Download</a>
-        <button id="toImg_canvas-copy" type="button" class="toimg__copy-button" style="display: none">Копіювати до
-          буферу</button>
-        <label id='toImg_text-to-crypto-label' for="input-text" class="toimg__text-label encryption__stage-label"
-          style="display: none">
-          Введіть текст
-          <input id="toImg_input-text" type="text" class="toimg__text-input encryption__stage-input">
-        </label>
-        <label id='toImg_crypto-key-label' for="input-key" class="toimg__key-label encryption__stage-label"
-          style="display: none">
-          Введіть ключ або згенеруйте новий
-          <input id="toImg_input-key" type="text" class="toimg__key-input encryption__stage-input"
-            style="display:block">
-          <button id="toImg_key-generate" type="button" class="toimg__key-button encryption__stage-button">Generate
-            key</button>
-        </label>
-        <button id="toImg_text-encrypt" type="button"
-          class="toimg__encrypt-button encryption__stage-button confirm-button" style="display: none">encrypt</button>
-
-      </article>
-      <article class="encryption__article totext">
-        <!-- for="toText_input-file" -->
-        <label  class="totext__img-label encryption__img-label" id="toText_inputFile-area">
-          Select the 'Image'
-        </label>
-          <input type="file" accept="image/png" id="toText_input-file" required
-            class="totext__img-input encryption__img-input">
-        <canvas id="toText_canvas" class="totext__canvas encryption__canvas"
-          style="border: 3px solid #555;width: 200px;height: 200px;object-fit: contain;"></canvas>
-        <button type="button" id="toText_canvas-reset" class="totext__reset-button encryption__reset-button"
-          style="display:none">Reset</button>
-        <label id='toText_crypto-key-label' for="toText_input-key" class="totext__key-label encryption__stage-label"
-          style="display: none">
-          Введіть ключ
-          <input id="toText_input-key" type="text" class="totext__key-input encryption__stage-input"
-            style="display:block">
-          <button id="toText_key-confirm" type="button"
-            class="totext__key-button encryption__stage-button confirm-button">Confirm</button>
-        </label>
-        <p id="toText_message" class="totext__message"></p>
-      </article>
+    <section class="greatings">
+      <div class="container">
+        <div class="greatings__inner">
+          <h1 class="greatings__title">CrypText</h1>
+          <h2 class="greatings__tagline">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit nemo magni dolore nam deserunt vel
+            ab fuga, facilis beatae consequuntur in quae pariatur incidunt enim. Assumenda error maxime inventore ut.
+          </h2>
+          <button class="greatings__button-more" type="button">How does it work?</button>
+          <button class="button__try greatings__button-try" type="button">Try now!</button>
+        </div>
+      </div>
+    </section>
+    <section class="how">
+      <div class="container">
+        <div class="how__inner">
+          <h2 class="title how__title">How does it work?</h2>
+          <p class="subtitle how__subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+          </p>
+          <!-- Slider -->
+          <div class="how__list">
+            <div class="how__-item">
+              <img class="how__item-img" src="" alt="">
+            </div>
+            <div class="how__-item">
+              <img class="how__item-img" src="" alt="">
+            </div>
+            <div class="how__-item">
+              <img class="how__item-img" src="" alt="">
+            </div>
+            <div class="how__-item">
+              <img class="how__item-img" src="" alt="">
+            </div>
+          </div>
+          <button class="button__try greatings__button-try" type="button">Try now!</button>
+        </div>
+      </div>
+    </section>
+    <section class="why">
+      <div class="container">
+        <div class="why__inner">
+          <h2 class="title why__title">Why it's useful?</h2>
+          <p class="subtitle why__subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+          </p>
+          <ul class="why__list">
+            <li class="why__item">Lorem ipsum dolor sit amet.</li>
+            <li class="why__item">Lorem ipsum dolor sit amet. Lorem, ipsum dolor.</li>
+            <li class="why__item">Lorem ipsum dolor sit amet. lirem2
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="try">
+      <div class="container">
+        <div class="try__inner">
+          <h2 class="title try__title">Try it yourself</h2>
+          <p class="subtitle try__subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+          </p>
+          <div class="encryption">
+            <div class="encryption__inner">
+              <div class="drop-area">
+                <div class="drop-area__inner">
+                  <div class="drop-area__img-container">
+                    <img class="drop-area__img" src="" alt="drop-file-here">
+                  </div>
+                  <p class="drop-area__text"><span class="drop-area__text-bold">Choose a file</span> or drag it here.
+                  </p>
+                  <input class="encryption__input-file" id="input-file" type="file"
+                    accept="image/jpeg, image/jpg, image/png" required>
+                </div>
+              </div>
+              <div class="option">
+                <div class="option__inner">
+                  <canvas class="option__canvas" id="canvas"></canvas>
+                  <div class="option__container">
+                    <div class="option__buttons">
+                      <button class="option__encrypt option__button" id="button-encrypt" type="button">Encrypt
+                        Message</button>
+                      <button class="option__decrypt option__button" id="button-decrypt" type="button">Decrypt
+                        Image</button>
+                    </div>
+                    <button class="option__reset encryption__reset" id="reset" type="button">Reset</button>
+                  </div>
+                </div>
+              </div>
+              <div class="inputs">
+                <div class="inputs__inner">
+                  <label class="inputs__text-label inputs__label" for="input-text">
+                    Message:
+                    <input class="inputs__text-input inputs__field" id="input-text" type="text"
+                      placeholder="Enter your secret message...">
+                    <p class="inputs__available-character">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Quibusdam, corporis.</p>
+                  </label>
+                  <label class="inputs__key-label inputs__label" for="input-key">
+                    Enter a Key<span class="inputs__key-text-generate" id="input-key-text-generate"> or generate new
+                      one</span>:
+                    <input class="inputs__key-input inputs__field" id="input-key" type="text">
+                    <button class="inputs__key-generate" id="key-generate" type="button">
+                      <img class="inputs__key-image" src="" alt="generate-key">
+                    </button>
+                    <p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
+                    <p class="inputs__warning">The key must be 8 characters long and meet the character requirements!
+                    </p>
+                  </label>
+                  <button class="inputs__key-encrypt inputs__button-confirm" id="text-encrypt"
+                    type="button">Encrypt</button>
+                  <button class="inputs__key-decrypt inputs__button-confirm" id="text-decrypt"
+                    type="button">Decrypt</button>
+                  <button class="inputs__reset encryption__reset" id="reset" type="button">Reset</button>
+                </div>
+              </div>
+              <div class="result">
+                <div class="result__inner">
+                  <div class="result__encrypt">
+                    <p class="result__text">Your message is encrypted. Now you can download it or copy to clipboard.</p>
+                    <a class="result__download" id="canvas-download" href="#" download="canvas.png">
+                      <img class="result__download-img" src="" alt="download">
+                      Download
+                    </a>
+                    <button class="result__clipboard" id="canvas-clipboard" type="button">
+                      <img class="result__clipboard-img" src="" alt="copy-to-clipboard">
+                      Copy to Clipboard
+                    </button>
+                  </div>
+                  <div class="result__decrypt">
+                    <p class="result__text">Encrypted message:</p>
+                    <p class="result__decrypted-message" id="decrypted-message"></p>
+                  </div>
+                  <button class="result__reset encryption__reset" id="reset" type="button">Reset</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="footer"></footer>
 
-  <script src="js/app.min.js?_v=20231005231555"></script>
+  <script src="js/app.min.js?_v=20231012014814"></script>
   <script>
 
 
