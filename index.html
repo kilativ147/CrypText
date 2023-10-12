@@ -6,45 +6,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231012014814">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231013011225">
   <title>CrypText ▪ Main page</title>
 </head>
 
-<body style="background: #ccc">
+<body>
   <header class="header">
   <!-- <picture><source srcset="img/avatar.webp" type="image/webp"><img src="img/avatar.png" alt=""></picture> -->
-  <div class="conteiner">
+  <div class="container">
     <div class="header__inner">
       <div class="logo">
         <a class="logo__link" href="#">
           <img class="logo__img" src="" alt="">
+          CrypText
         </a>
       </div>
-      <nav class="menu">
+      <nav class="menu" id="header-menu">
         <ul class="menu__list">
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <p class="menu__link-covered">How</p>does it work
+              <span class="menu__link-covered">How</span>does it work
             </a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <p class="menu__link-covered">Why</p>it's useful
+              <span class="menu__link-covered">Why</span>it's useful
             </a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <p class="menu__link-covered">Try</p>it yourself
+              <span class="button-try menu__link-covered">Try</span>it yourself
             </a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <p class="menu__link-covered">Contact</p>with author
+              <span class="menu__link-covered">Contact</span>with author
             </a>
           </li>
         </ul>
       </nav>
-      <div class="button__try header__button">Try now!</div>
+      <div class="burger" id="burger-button">
+        <div class="burger__row"></div>
+      </div>
     </div>
   </div>
 </header>
@@ -193,7 +196,7 @@
   </main>
   <footer class="footer"></footer>
 
-  <script src="js/app.min.js?_v=20231012014814"></script>
+  <script src="js/app.min.js?_v=20231013011225"></script>
   <script>
 
 
