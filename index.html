@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- імпортуємо код з іншого html документу -->
-<!-- передаємо йому змінну title, яка може бути різною для кожної сторінки -->
-<head>
+	<!-- імпортуємо код з іншого html документу -->
+	<!-- передаємо йому змінну title, яка може бути різною для кожної сторінки -->
+	<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231013011225">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231014030710">
   <title>CrypText ▪ Main page</title>
 </head>
 
-<body>
-  <header class="header">
+	<body>
+		<header class="header">
   <!-- <picture><source srcset="img/avatar.webp" type="image/webp"><img src="img/avatar.png" alt=""></picture> -->
   <div class="container">
     <div class="header__inner">
       <div class="logo">
         <a class="logo__link" href="#">
-          <img class="logo__img" src="" alt="">
+          <picture><source srcset="img/512x512.webp" type="image/webp"><img class="logo__img" src="img/512x512.png" alt="Logo"></picture>
           CrypText
         </a>
       </div>
@@ -25,22 +25,22 @@
         <ul class="menu__list">
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <span class="menu__link-covered">How</span>does it work
+              <span class="menu__link-covered">How </span>does it work
             </a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <span class="menu__link-covered">Why</span>it's useful
+              <span class="menu__link-covered">Why </span>it's useful
             </a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <span class="button-try menu__link-covered">Try</span>it yourself
+              <span class="button-try menu__link-covered">Try </span>it yourself
             </a>
           </li>
           <li class="menu__item">
             <a class="menu__link" href="#">
-              <span class="menu__link-covered">Contact</span>with author
+              <span class="menu__link-covered">Contact </span>with author
             </a>
           </li>
         </ul>
@@ -51,156 +51,202 @@
     </div>
   </div>
 </header>
-  <main>
-    <section class="greatings">
-      <div class="container">
-        <div class="greatings__inner">
-          <h1 class="greatings__title">CrypText</h1>
-          <h2 class="greatings__tagline">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit nemo magni dolore nam deserunt vel
-            ab fuga, facilis beatae consequuntur in quae pariatur incidunt enim. Assumenda error maxime inventore ut.
-          </h2>
-          <button class="greatings__button-more" type="button">How does it work?</button>
-          <button class="button__try greatings__button-try" type="button">Try now!</button>
-        </div>
-      </div>
-    </section>
-    <section class="how">
-      <div class="container">
-        <div class="how__inner">
-          <h2 class="title how__title">How does it work?</h2>
-          <p class="subtitle how__subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
-          </p>
-          <!-- Slider -->
-          <div class="how__list">
-            <div class="how__-item">
-              <img class="how__item-img" src="" alt="">
-            </div>
-            <div class="how__-item">
-              <img class="how__item-img" src="" alt="">
-            </div>
-            <div class="how__-item">
-              <img class="how__item-img" src="" alt="">
-            </div>
-            <div class="how__-item">
-              <img class="how__item-img" src="" alt="">
-            </div>
-          </div>
-          <button class="button__try greatings__button-try" type="button">Try now!</button>
-        </div>
-      </div>
-    </section>
-    <section class="why">
-      <div class="container">
-        <div class="why__inner">
-          <h2 class="title why__title">Why it's useful?</h2>
-          <p class="subtitle why__subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
-          </p>
-          <ul class="why__list">
-            <li class="why__item">Lorem ipsum dolor sit amet.</li>
-            <li class="why__item">Lorem ipsum dolor sit amet. Lorem, ipsum dolor.</li>
-            <li class="why__item">Lorem ipsum dolor sit amet. lirem2
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="try">
-      <div class="container">
-        <div class="try__inner">
-          <h2 class="title try__title">Try it yourself</h2>
-          <p class="subtitle try__subtitle">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
-          </p>
-          <div class="encryption">
-            <div class="encryption__inner">
-              <div class="drop-area">
-                <div class="drop-area__inner">
-                  <div class="drop-area__img-container">
-                    <img class="drop-area__img" src="" alt="drop-file-here">
-                  </div>
-                  <p class="drop-area__text"><span class="drop-area__text-bold">Choose a file</span> or drag it here.
-                  </p>
-                  <input class="encryption__input-file" id="input-file" type="file"
-                    accept="image/jpeg, image/jpg, image/png" required>
-                </div>
-              </div>
-              <div class="option">
-                <div class="option__inner">
-                  <canvas class="option__canvas" id="canvas"></canvas>
-                  <div class="option__container">
-                    <div class="option__buttons">
-                      <button class="option__encrypt option__button" id="button-encrypt" type="button">Encrypt
-                        Message</button>
-                      <button class="option__decrypt option__button" id="button-decrypt" type="button">Decrypt
-                        Image</button>
-                    </div>
-                    <button class="option__reset encryption__reset" id="reset" type="button">Reset</button>
-                  </div>
-                </div>
-              </div>
-              <div class="inputs">
-                <div class="inputs__inner">
-                  <label class="inputs__text-label inputs__label" for="input-text">
-                    Message:
-                    <input class="inputs__text-input inputs__field" id="input-text" type="text"
-                      placeholder="Enter your secret message...">
-                    <p class="inputs__available-character">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quibusdam, corporis.</p>
-                  </label>
-                  <label class="inputs__key-label inputs__label" for="input-key">
-                    Enter a Key<span class="inputs__key-text-generate" id="input-key-text-generate"> or generate new
-                      one</span>:
-                    <input class="inputs__key-input inputs__field" id="input-key" type="text">
-                    <button class="inputs__key-generate" id="key-generate" type="button">
-                      <img class="inputs__key-image" src="" alt="generate-key">
-                    </button>
-                    <p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
-                    <p class="inputs__warning">The key must be 8 characters long and meet the character requirements!
-                    </p>
-                  </label>
-                  <button class="inputs__key-encrypt inputs__button-confirm" id="text-encrypt"
-                    type="button">Encrypt</button>
-                  <button class="inputs__key-decrypt inputs__button-confirm" id="text-decrypt"
-                    type="button">Decrypt</button>
-                  <button class="inputs__reset encryption__reset" id="reset" type="button">Reset</button>
-                </div>
-              </div>
-              <div class="result">
-                <div class="result__inner">
-                  <div class="result__encrypt">
-                    <p class="result__text">Your message is encrypted. Now you can download it or copy to clipboard.</p>
-                    <a class="result__download" id="canvas-download" href="#" download="canvas.png">
-                      <img class="result__download-img" src="" alt="download">
-                      Download
-                    </a>
-                    <button class="result__clipboard" id="canvas-clipboard" type="button">
-                      <img class="result__clipboard-img" src="" alt="copy-to-clipboard">
-                      Copy to Clipboard
-                    </button>
-                  </div>
-                  <div class="result__decrypt">
-                    <p class="result__text">Encrypted message:</p>
-                    <p class="result__decrypted-message" id="decrypted-message"></p>
-                  </div>
-                  <button class="result__reset encryption__reset" id="reset" type="button">Reset</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer"></footer>
+		<main>
+			<section class="greatings">
+				<div class="container">
+					<div class="greatings__inner">
+						<h1 class="greatings__title">CrypText</h1>
+						<h2 class="greatings__tagline">
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit nemo magni
+							dolore nam deserunt vel ab fuga, facilis beatae consequuntur in quae pariatur incidunt
+							enim. Assumenda error maxime inventore ut.
+						</h2>
+						<button class="greatings__button-more" type="button">How does it work?</button>
+						<button class="button__try greatings__button-try" type="button">Try now!</button>
+					</div>
+				</div>
+			</section>
+			<section class="how">
+				<div class="container">
+					<div class="how__inner">
+						<h2 class="title how__title">How does it work?</h2>
+						<p class="subtitle how__subtitle">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+						</p>
+						<!-- Slider -->
+						<div class="how__list">
+							<div class="how__-item">
+								<img class="how__item-img" src="" alt="" />
+							</div>
+							<div class="how__-item">
+								<img class="how__item-img" src="" alt="" />
+							</div>
+							<div class="how__-item">
+								<img class="how__item-img" src="" alt="" />
+							</div>
+							<div class="how__-item">
+								<img class="how__item-img" src="" alt="" />
+							</div>
+						</div>
+						<button class="button__try greatings__button-try" type="button">Try now!</button>
+					</div>
+				</div>
+			</section>
+			<section class="why">
+				<div class="container">
+					<div class="why__inner">
+						<h2 class="title why__title">Why it's useful?</h2>
+						<p class="subtitle why__subtitle">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+						</p>
+						<ul class="why__list">
+							<li class="why__item">Lorem ipsum dolor sit amet.</li>
+							<li class="why__item">Lorem ipsum dolor sit amet. Lorem, ipsum dolor.</li>
+							<li class="why__item">Lorem ipsum dolor sit amet. lirem2</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="try">
+				<div class="container">
+					<div class="try__inner">
+						<h2 class="title try__title">Try it yourself</h2>
+						<p class="subtitle try__subtitle">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+						</p>
+						<div class="encryption">
+							<div class="encryption__inner">
+								<div class="drop-area">
+									<label class="drop-area__inner" for="input-file">
+										<div class="drop-area__img-container">
+											<img class="drop-area__img" src="" alt="drop-file-here" />
+										</div>
+										<p class="drop-area__text">
+											<span class="drop-area__text-bold">Choose a file</span> or drag it here.
+										</p>
+										<input
+											class="encryption__input-file"
+											id="input-file"
+											type="file"
+											accept="image/jpeg, image/jpg, image/png"
+											required
+										/>
+									</label>
+								</div>
+								<div class="option">
+									<div class="option__inner">
+										<canvas class="option__canvas" id="canvas"></canvas>
+										<div class="option__container">
+											<div class="option__buttons">
+												<button
+													class="option__encrypt option__button"
+													id="button-encrypt"
+													type="button"
+												>
+													Encrypt Message
+												</button>
+												<button
+													class="option__decrypt option__button"
+													id="button-decrypt"
+													type="button"
+												>
+													Decrypt Image
+												</button>
+											</div>
+											<button class="option__reset encryption__reset" id="reset" type="button">
+												Reset
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="inputs">
+									<div class="inputs__inner">
+										<label class="inputs__text-label inputs__label" for="input-text">
+											Message:
+											<input
+												class="inputs__text-input inputs__field"
+												id="input-text"
+												type="text"
+												placeholder="Enter your secret message..."
+											/>
+											<p class="inputs__available-character">
+												Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam,
+												corporis.
+											</p>
+										</label>
+										<label class="inputs__key-label inputs__label" for="input-key">
+											Enter a Key<span
+												class="inputs__key-text-generate"
+												id="input-key-text-generate"
+											>
+												or generate new one</span
+											>:
+											<input class="inputs__key-input inputs__field" id="input-key" type="text" />
+											<button class="inputs__key-generate" id="key-generate" type="button">
+												<img class="inputs__key-image" src="" alt="generate-key" />
+											</button>
+											<p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
+											<p class="inputs__warning">
+												The key must be 8 characters long and meet the character requirements!
+											</p>
+										</label>
+										<button
+											class="inputs__key-encrypt inputs__button-confirm"
+											id="text-encrypt"
+											type="button"
+										>
+											Encrypt
+										</button>
+										<button
+											class="inputs__key-decrypt inputs__button-confirm"
+											id="text-decrypt"
+											type="button"
+										>
+											Decrypt
+										</button>
+										<button class="inputs__reset encryption__reset" id="reset" type="button">
+											Reset
+										</button>
+									</div>
+								</div>
+								<div class="result">
+									<div class="result__inner">
+										<div class="result__encrypt">
+											<p class="result__text">
+												Your message is encrypted. Now you can download it or copy to clipboard.
+											</p>
+											<a
+												class="result__download"
+												id="canvas-download"
+												href="#"
+												download="canvas.png"
+											>
+												<img class="result__download-img" src="" alt="download" />
+												Download
+											</a>
+											<button class="result__clipboard" id="canvas-clipboard" type="button">
+												<img class="result__clipboard-img" src="" alt="copy-to-clipboard" />
+												Copy to Clipboard
+											</button>
+										</div>
+										<div class="result__decrypt">
+											<p class="result__text">Encrypted message:</p>
+											<p class="result__decrypted-message" id="decrypted-message"></p>
+										</div>
+										<button class="result__reset encryption__reset" id="reset" type="button">
+											Reset
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer"></footer>
 
-  <script src="js/app.min.js?_v=20231013011225"></script>
-  <script>
-
-
-  </script>
-</body>
-
+		<script src="js/app.min.js?_v=20231014030710"></script>
+		<script></script>
+	</body>
 </html>
