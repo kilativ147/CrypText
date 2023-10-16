@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!-- імпортуємо код з іншого html документу -->
-	<!-- передаємо йому змінну title, яка може бути різною для кожної сторінки -->
 	<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231014225416">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231016232103">
   <title>CrypText ▪ Main page</title>
 </head>
 
@@ -116,8 +114,8 @@
 						</p>
 						<div class="encryption">
 							<div class="encryption__inner">
-								<div class="drop-area">
-									<label class="drop-area__inner" for="input-file">
+								<div class="drop-area" id="drop-main">
+									<label class="drop-area__inner" for="input-file" id="drop-area">
 										<div class="drop-area__img-container">
 											<img class="drop-area__img" src="" alt="drop-file-here" />
 										</div>
@@ -133,36 +131,36 @@
 										/>
 									</label>
 								</div>
-								<div class="option">
+								<div class="option" id="option-main">
+									<canvas class="option__canvas" id="canvas"></canvas>
 									<div class="option__inner">
-										<canvas class="option__canvas" id="canvas"></canvas>
-										<div class="option__container">
-											<div class="option__buttons">
-												<button
-													class="option__encrypt option__button"
-													id="button-encrypt"
-													type="button"
-												>
-													Encrypt Message
-												</button>
-												<button
-													class="option__decrypt option__button"
-													id="button-decrypt"
-													type="button"
-												>
-													Decrypt Image
-												</button>
-											</div>
-											<button class="option__reset encryption__reset" id="reset" type="button">
-												Reset
+										<div class="option__buttons">
+											<button
+												class="option__encrypt option__button"
+												id="button-option__encrypt"
+												type="button"
+											>
+												Encrypt Message
+											</button>
+											<button
+												class="option__decrypt option__button"
+												id="button-option__decrypt"
+												type="button"
+											>
+												Decrypt Image
 											</button>
 										</div>
+										<button class="option__reset encryption__reset" id="reset" type="button">
+											Reset
+										</button>
 									</div>
 								</div>
-								<div class="inputs">
+								<div class="inputs" id="inputs-main">
 									<div class="inputs__inner">
-										<label class="inputs__text-label inputs__label" for="input-text">
-											Message:
+										<div class="inputs__text-group inputs__input-group" id="inputs__text">
+											<label class="inputs__text-label inputs__label" for="input-text">
+												Message:
+											</label>
 											<input
 												class="inputs__text-input inputs__field"
 												id="input-text"
@@ -173,23 +171,28 @@
 												Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam,
 												corporis.
 											</p>
-										</label>
-										<label class="inputs__key-label inputs__label" for="input-key">
-											Enter a Key<span
-												class="inputs__key-text-generate"
-												id="input-key-text-generate"
-											>
-												or generate new one</span
-											>:
-											<input class="inputs__key-input inputs__field" id="input-key" type="text" />
-											<button class="inputs__key-generate" id="key-generate" type="button">
-												<img class="inputs__key-image" src="" alt="generate-key" />
+										</div>
+										<div class="inputs__key-group inputs__input-group" id="inputs__key">
+											<label class="inputs__key-label inputs__label" for="input-key">
+												Enter a Key<span
+													class="inputs__key-text-generate"
+													id="input-key-text-span"
+												>
+													or generate new one</span
+												>:
+											</label>
+											<input class="inputs__key-input inputs__field" id="input-key" type="text" maxlength="8"/>
+											<button class="inputs__key-generate inputs__key-button" id="key-generate" type="button">
+												<img class="inputs__key-image " src="img/icons/icons.svg#dice" alt=" " />
+											</button>
+											<button class="inputs__key-copy inputs__key-button" id="key-copy" type="button">
+												<img class="inputs__key-image" src="img/icons/icons.svg#dice" alt=" " />
 											</button>
 											<p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
 											<p class="inputs__warning">
 												The key must be 8 characters long and meet the character requirements!
 											</p>
-										</label>
+										</div>
 										<button
 											class="inputs__key-encrypt inputs__button-confirm"
 											id="text-encrypt"
@@ -209,9 +212,9 @@
 										</button>
 									</div>
 								</div>
-								<div class="result">
+								<div class="result" id="result-main">
 									<div class="result__inner">
-										<div class="result__encrypt">
+										<div class="result__encrypt" id="result-enc">
 											<p class="result__text">
 												Your message is encrypted. Now you can download it or copy to clipboard.
 											</p>
@@ -229,12 +232,12 @@
 												Copy to Clipboard
 											</button>
 										</div>
-										<div class="result__decrypt">
+										<div class="result__decrypt" id="result-dec">
 											<p class="result__text">Encrypted message:</p>
 											<p class="result__decrypted-message" id="decrypted-message"></p>
 										</div>
 										<button class="result__reset encryption__reset" id="reset" type="button">
-											Reset
+											Try another one
 										</button>
 									</div>
 								</div>
@@ -246,7 +249,7 @@
 		</main>
 		<footer class="footer"></footer>
 
-		<script src="js/app.min.js?_v=20231014225416"></script>
+		<script src="js/app.min.js?_v=20231016232103"></script>
 		<script></script>
 	</body>
 </html>
