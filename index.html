@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231016232103">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231017233132">
   <title>CrypText ▪ Main page</title>
 </head>
 
@@ -19,7 +19,7 @@
           CrypText
         </a>
       </div>
-      <nav class="menu" id="header-menu">
+      <nav class="menu menu-active" id="header-menu">
         <ul class="menu__list">
           <li class="menu__item">
             <a class="menu__link" href="#">
@@ -150,9 +150,7 @@
 												Decrypt Image
 											</button>
 										</div>
-										<button class="option__reset encryption__reset" id="reset" type="button">
-											Reset
-										</button>
+										<button class="option__reset encryption__reset" type="button">Reset</button>
 									</div>
 								</div>
 								<div class="inputs" id="inputs-main">
@@ -161,6 +159,9 @@
 											<label class="inputs__text-label inputs__label" for="input-text">
 												Message:
 											</label>
+											<span class="inputs__text-tooltip inputs-tooltip" id="text-tooltip"
+												>Please, use only available characters</span
+											>
 											<input
 												class="inputs__text-input inputs__field"
 												id="input-text"
@@ -174,18 +175,20 @@
 										</div>
 										<div class="inputs__key-group inputs__input-group" id="inputs__key">
 											<label class="inputs__key-label inputs__label" for="input-key">
-												Enter a Key<span
-													class="inputs__key-text-generate"
-													id="input-key-text-span"
-												>
+												Enter a Key<span class="inputs__key-text-generate" id="input-key-text-span">
 													or generate new one</span
 												>:
 											</label>
-											<input class="inputs__key-input inputs__field" id="input-key" type="text" maxlength="8"/>
-											<button class="inputs__key-generate inputs__key-button" id="key-generate" type="button">
-												<img class="inputs__key-image " src="img/icons/icons.svg#dice" alt=" " />
-											</button>
-											<button class="inputs__key-copy inputs__key-button" id="key-copy" type="button">
+											<span class="inputs__key-tooltip inputs-tooltip" id="key-tooltip"
+												>Please, use only available characters</span
+											>
+											<input
+												class="inputs__key-input inputs__field"
+												id="input-key"
+												type="text"
+												maxlength="8"
+											/>
+											<button class="inputs__key-generate" id="key-generate" type="button">
 												<img class="inputs__key-image" src="img/icons/icons.svg#dice" alt=" " />
 											</button>
 											<p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
@@ -207,9 +210,7 @@
 										>
 											Decrypt
 										</button>
-										<button class="inputs__reset encryption__reset" id="reset" type="button">
-											Reset
-										</button>
+										<button class="inputs__reset encryption__reset" type="button">Reset</button>
 									</div>
 								</div>
 								<div class="result" id="result-main">
@@ -218,25 +219,32 @@
 											<p class="result__text">
 												Your message is encrypted. Now you can download it or copy to clipboard.
 											</p>
-											<a
-												class="result__download"
-												id="canvas-download"
-												href="#"
-												download="canvas.png"
-											>
-												<img class="result__download-img" src="" alt="download" />
-												Download
-											</a>
-											<button class="result__clipboard" id="canvas-clipboard" type="button">
-												<img class="result__clipboard-img" src="" alt="copy-to-clipboard" />
-												Copy to Clipboard
+											<label class="result__key-label" for="result-key">Your secret key:</label>
+											<input class="result__key-field" id="result-key" type="password" />
+											<button class="result__key-copy" id="key-copy" type="button">
+												<img class="result__key-image" src="img/icons/icons.svg#dice" alt=" " />
 											</button>
+											<div class="result__download-copy">
+												<a
+													class="result__download"
+													id="canvas-download"
+													href="#"
+													download="canvas.png"
+												>
+													<img class="result__download-img" src="" alt="download" />
+													Download
+												</a>
+												<button class="result__clipboard" id="canvas-clipboard" type="button">
+													<img class="result__clipboard-img" src="" alt="copy-to-clipboard" />
+													Copy to Clipboard
+												</button>
+											</div>
 										</div>
 										<div class="result__decrypt" id="result-dec">
 											<p class="result__text">Encrypted message:</p>
 											<p class="result__decrypted-message" id="decrypted-message"></p>
 										</div>
-										<button class="result__reset encryption__reset" id="reset" type="button">
+										<button class="result__reset encryption__reset" type="button">
 											Try another one
 										</button>
 									</div>
@@ -249,7 +257,7 @@
 		</main>
 		<footer class="footer"></footer>
 
-		<script src="js/app.min.js?_v=20231016232103"></script>
+		<script src="js/app.min.js?_v=20231017233132"></script>
 		<script></script>
 	</body>
 </html>
