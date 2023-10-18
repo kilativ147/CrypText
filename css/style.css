@@ -616,7 +616,7 @@ body {
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.inputs-tooltip__text-tooltip--animate {
+.inputs-tooltip--animate {
   top: -10px;
   opacity: 1;
   visibility: visible;
