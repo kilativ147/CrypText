@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231018211604">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231021003218">
   <title>CrypText ▪ Main page</title>
 </head>
 
@@ -162,12 +162,14 @@
 											<span class="inputs__text-tooltip inputs-tooltip" id="text-tooltip"
 												>The message does not meet the requirements</span
 											>
-											<input
-												class="inputs__text-input inputs__field"
-												id="input-text"
-												type="text"
-												placeholder="Enter your secret message..."
-											/>
+											<div class="inputs__text-input-field">
+												<input
+													class="inputs__text-input inputs__field"
+													id="input-text"
+													type="text"
+													placeholder="Enter your secret message..."
+												/>
+											</div>
 											<p class="inputs__available-character">
 												Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam,
 												corporis.
@@ -182,15 +184,42 @@
 											<span class="inputs__key-tooltip inputs-tooltip" id="key-tooltip"
 												>The key does not meet the requirements</span
 											>
-											<input
-												class="inputs__key-input inputs__field"
-												id="input-key"
-												type="text"
-												maxlength="8"
-											/>
-											<button class="inputs__key-generate" id="key-generate" type="button">
-												<img class="inputs__key-image" src="img/icons/icons.svg#dice" alt=" " />
-											</button>
+											<div class="inputs__key-field">
+												<div class="inputs__key-input-field">
+													<input
+														class="inputs__key-input inputs__field"
+														id="input-key"
+														type="password"
+														maxlength="8"
+													/>
+													<button class="inputs__key-show key-buttons" id="input-key-show">
+														<span class="inputs__key-hidden" id="input-key-indicator"></span>
+														<img
+															class="inputs__key-image key-image"
+															src="img/icons/icons.svg#dice"
+															alt="show/hide-password"
+														/>
+													</button>
+												</div>
+												<button
+													class="inputs__key-generate key-buttons"
+													id="key-generate"
+													type="button"
+												>
+													<img
+														class="inputs__key-image key-image"
+														src="img/icons/icons.svg#dice"
+														alt="generate-key"
+													/>
+												</button>
+												<button class="inputs__key-paste key-buttons" id="key-paste" type="button">
+													<img
+														class="inputs__key-image key-image"
+														src="img/icons/icons.svg#dice"
+														alt="paste-key-from-clipboard"
+													/>
+												</button>
+											</div>
 											<p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
 											<p class="inputs__warning">
 												The key must be 8 characters long and meet the character requirements!
@@ -220,10 +249,21 @@
 												Your message is encrypted. Now you can download it or copy to clipboard.
 											</p>
 											<label class="result__key-label" for="result-key">Your secret key:</label>
-											<input class="result__key-field" id="result-key" type="password" />
-											<button class="result__key-copy" id="key-copy" type="button">
-												<img class="result__key-image" src="img/icons/icons.svg#dice" alt=" " />
-											</button>
+											<div class="result__key-field">
+												<div class="result__key-input-field">
+													<input class="result__key-field" id="result-key" type="password" />
+													<button class="result__key-show" id="result-key-show">
+														<img class="result__key-image key-image" src="" alt="show/hide-password" />
+													</button>
+												</div>
+												<button class="result__key-copy" id="key-copy" type="button">
+													<img
+														class="result__key-image key-image"
+														src="img/icons/icons.svg#dice"
+														alt="copy-the-key-to-clipboard"
+													/>
+												</button>
+											</div>
 											<div class="result__download-copy">
 												<a
 													class="result__download"
@@ -234,8 +274,12 @@
 													<img class="result__download-img" src="" alt="download" />
 													Download
 												</a>
-												<button class="result__clipboard" id="canvas-clipboard" type="button">
-													<img class="result__clipboard-img" src="" alt="copy-to-clipboard" />
+												<button
+													class="result__clipboard key-buttons"
+													id="canvas-clipboard"
+													type="button"
+												>
+													<img class="result__key-image key-image" src="" alt="copy-to-clipboard" />
 													Copy to Clipboard
 												</button>
 											</div>
@@ -257,7 +301,7 @@
 		</main>
 		<footer class="footer"></footer>
 
-		<script src="js/app.min.js?_v=20231018211604"></script>
+		<script src="js/app.min.js?_v=20231021003218"></script>
 		<script></script>
 	</body>
 </html>

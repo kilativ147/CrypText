@@ -403,7 +403,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #333;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-transform: translate(0, 1000px);
@@ -470,7 +470,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #333;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-transform: translate(0, 1000px);
@@ -559,7 +559,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #333;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-transform: translate(0, 1000px);
@@ -578,11 +578,15 @@ body {
   position: relative;
   padding-bottom: 15px;
   font-size: 1.3rem;
+  min-width: calc(100% - 40px);
+  max-width: 100%;
 }
 
 .inputs__label {
+  color: #ddd;
   display: block;
   padding-bottom: 5px;
+  font-weight: 600;
 }
 
 .inputs-tooltip {
@@ -623,47 +627,122 @@ body {
   pointer-events: auto;
 }
 
+.inputs__text-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px #999;
+          box-shadow: 1px 1px 3px #999;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .inputs__field {
   font-size: 1em;
-  color: #333;
+  color: #ccc;
+  background-color: #444;
   padding: 3px 6px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  border: 1px solid #ccc;
-  border-radius: 2px;
 }
 
 .inputs__available-character {
+  margin-top: 10px;
   font-size: 0.75em;
 }
 
 .inputs__available-character:not(:last-child) {
-  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-.inputs__key-input {
-  width: 10ch;
+.inputs__key-field {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.inputs__key-input-field {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px #999;
+          box-shadow: 1px 1px 3px #999;
+  overflow: hidden;
+  position: relative;
+  min-width: 13ch;
+  max-width: 18ch;
 }
 
 .inputs__key-input--success {
   color: rgb(10, 255, 10);
 }
 
-.inputs__key-generate {
-  height: 1.75rem;
-  -webkit-transform: translate(0, -3px);
-      -ms-transform: translate(0, -3px);
-          transform: translate(0, -3px);
+.inputs .key-buttons {
+  height: inherit;
   aspect-ratio: 1;
-  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px #999;
+          box-shadow: 1px 1px 3px #999;
+  background-color: #ddd;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.inputs__key-image {
-  width: 80%;
-  height: 80%;
+.inputs .key-buttons:hover {
+  background-color: #ccc;
+}
+
+.inputs .key-image {
+  width: 70%;
+  aspect-ratio: 1;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.inputs__key-show.key-buttons {
+  position: absolute;
+  right: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.inputs__key-show.key-buttons:hover {
+  background-color: transparent;
+}
+
+.inputs__key-hidden {
+  position: absolute;
+  translate: -50%;
+  rotate: 45deg;
+  display: block;
+  height: 3px;
+  width: 75%;
+  background-color: #fff;
+  -webkit-box-shadow: 0px -3px 0px #444;
+          box-shadow: 0px -3px 0px #444;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  inset: 0;
+  scale: 0;
+}
+
+.inputs .inputs__key-hidden--visible {
+  inset: 50%;
+  scale: 1;
+}
+
+.inputs__key-generate {
+  margin-right: 5px;
 }
 
 .inputs__warning {
@@ -689,7 +768,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #333;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   -webkit-transform: translate(0, 1000px);
