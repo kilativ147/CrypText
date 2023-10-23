@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231023010653">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231023191507">
   <title>CrypText ▪ Main page</title>
 </head>
 
@@ -140,36 +140,49 @@
 									<canvas class="option__canvas" id="canvas"></canvas>
 									<div class="option__inner">
 										<div class="option__buttons">
+											<div class="option__encrypt-picture option__buttons-picture">
+												<img class="option__buttons-image" src="img/icons/icons.svg#lock" alt="" />
+											</div>
 											<button
 												class="option__encrypt option__button"
 												id="button-option__encrypt"
 												type="button"
 											>
-												<div class="option__buttons-picture">
-													<img
-														class="option__buttons-image"
-														src="img/icons/icons.svg#lock"
-														alt=""
-													/>
-												</div>
-												Encrypt Message
+												<span class="option__encrypt-text option__actual-text"
+													>&nbsp;Encrypt&nbsp;</span
+												>
+												<span class="option__encrypt-hover option__hover-text" aria-hidden="true"
+													>&nbsp;Encrypt&nbsp;</span
+												>
 											</button>
+											<div class="option__decrypt-picture option__buttons-picture">
+												<img
+													class="option__buttons-image"
+													src="img/icons/icons.svg#lock-unlock"
+													alt=""
+												/>
+											</div>
 											<button
 												class="option__decrypt option__button"
 												id="button-option__decrypt"
 												type="button"
 											>
-												<div class="option__buttons-picture">
-													<img
-														class="option__buttons-image"
-														src="img/icons/icons.svg#lock-unlock"
-														alt=""
-													/>
-												</div>
-												Decrypt Message
+												<span class="option__decrypt-text option__actual-text"
+													>&nbsp;Decrypt&nbsp;</span
+												>
+												<span class="option__decrypt-hover option__hover-text" aria-hidden="true"
+													>&nbsp;Decrypt&nbsp;</span
+												>
 											</button>
 										</div>
-										<button class="option__reset encryption__reset" type="button">Reset</button>
+										<button class="option__reset encryption__reset">
+											<img
+												class="encryption__reset-img"
+												src="img/icons/icons.svg#reset"
+												alt="reset"
+											/>
+											<span class="encryption__reset-text">Repeat</span>
+										</button>
 									</div>
 								</div>
 								<div class="inputs" id="inputs-main">
@@ -178,12 +191,10 @@
 											<label class="inputs__text-label inputs__label" for="input-text">
 												Message:
 											</label>
-											<span class="inputs__text-tooltip inputs-tooltip" id="text-tooltip"
-												>The message does not meet the requirements</span
-											>
 											<div class="inputs__text-input-field">
-												<div class="inputs__entered-character" id="entered-cherecter"></div>
-												
+												<span class="inputs__text-tooltip inputs-tooltip" id="text-tooltip"
+													>The message does not meet the requirements</span
+												>
 												<input
 													class="inputs__text-input inputs__field"
 													id="input-text"
@@ -191,10 +202,12 @@
 													placeholder="Enter your secret message..."
 												/>
 											</div>
-											<p class="inputs__available-character">
-												Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam,
-												corporis.
-											</p>
+											<div class="inputs__character-container">
+												<p class="inputs__available-character">
+													Only Latin letters, numbers and punctuation marks are available for message encryption. 
+												</p>
+												<div class="inputs__entered-character" id="entered-cherecter"></div>
+											</div>
 										</div>
 										<div class="inputs__key-group inputs__input-group" id="inputs__key">
 											<label class="inputs__key-label inputs__label" for="input-key">
@@ -241,10 +254,7 @@
 													/>
 												</button>
 											</div>
-											<p class="inputs__available-character">Lorem ipsum dolor sit amet.</p>
-											<p class="inputs__warning">
-												The key must be 8 characters long and meet the character requirements!
-											</p>
+											<p class="inputs__available-character">The KEY must be 8 characters long and only contain the following characters: <span style="font-weight: 600;">0-9 a-z A-Z -!#$&:?|</span></p>
 										</div>
 										<button
 											class="inputs__key-encrypt inputs__button-confirm"
@@ -260,7 +270,14 @@
 										>
 											Decrypt
 										</button>
-										<button class="inputs__reset encryption__reset" type="button">Reset</button>
+										<button class="inputs__reset encryption__reset">
+											<img
+												class="encryption__reset-img"
+												src="img/icons/icons.svg#reset"
+												alt="reset"
+											/>
+											<span class="encryption__reset-text">Repeat</span>
+										</button>
 									</div>
 								</div>
 								<div class="result" id="result-main">
@@ -269,6 +286,14 @@
 											<p class="result__text">Your message has been successfully encrypted!</p>
 											<label class="result__key-label" for="result-key">Your secret key:</label>
 											<div class="result__key-field">
+												<div class="result__key-icon">
+													<img
+														src="img/icons/icons.svg#key"
+														alt=""
+														class="result__key-icon-image"
+													/>
+												</div>
+
 												<div class="result__key-input-field">
 													<input
 														class="result__key-input"
@@ -334,8 +359,13 @@
 											<p class="result__text">Encrypted message:</p>
 											<p class="result__decrypted-message" id="decrypted-message"></p>
 										</div>
-										<button class="result__reset encryption__reset" type="button">
-											Try another one
+										<button class="inputs__reset encryption__reset">
+											<img
+												class="encryption__reset-img"
+												src="img/icons/icons.svg#reset"
+												alt="reset"
+											/>
+											<span class="encryption__reset-text">Try another one</span>
 										</button>
 									</div>
 								</div>
@@ -347,7 +377,7 @@
 		</main>
 		<footer class="footer"></footer>
 
-		<script src="js/app.min.js?_v=20231023010653"></script>
+		<script src="js/app.min.js?_v=20231023191507"></script>
 		<script></script>
 	</body>
 </html>
