@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20231023191507">
+  <link rel="icon" type="image/svg" href="img/icons/icons.svg#favicon">
+  <link rel="stylesheet" href="css/style.min.css?_v=20231026005422">
   <title>CrypText ▪ Main page</title>
 </head>
 
@@ -14,30 +15,30 @@
   <div class="container">
     <div class="header__inner">
       <div class="logo">
-        <a class="logo__link" href="#">
-          <picture><source srcset="img/Logo.webp" type="image/webp"><img class="logo__img" src="img/Logo.png" alt="Logo"></picture>
+        <a class="logo__link" id="nav-logo" href="#!">
+          <img class="logo__img" src="img/icons/icons.svg#Logo" alt="Logo">
           CrypText
         </a>
       </div>
       <nav class="menu" id="header-menu">
         <ul class="menu__list">
           <li class="menu__item">
-            <a class="menu__link" href="#">
+            <a class="menu__link" id="nav-how" href="#!">
               <p class="menu__link-covered">How </p>does it work
             </a>
           </li>
           <li class="menu__item">
-            <a class="menu__link" href="#">
+            <a class="menu__link" id="nav-why" href="#!">
               <p class="menu__link-covered">Why </p>it's useful
             </a>
           </li>
           <li class="menu__item">
-            <a class="menu__link" href="#">
+            <a class="menu__link" id="nav-try" href="#!">
               <p class="button-try menu__link-covered">Try </p>it yourself
             </a>
           </li>
           <li class="menu__item">
-            <a class="menu__link" href="#">
+            <a class="menu__link" id="nav-contact" href="#!">
               <p class="menu__link-covered">Contact </p>with author
             </a>
           </li>
@@ -50,7 +51,17 @@
   </div>
 </header>
 		<main>
-			<section class="greatings">
+			<section class="greatings" id="greatings">
+				<!-- <video class="greatings__background" autoplay muted loop>
+					<source src="files/video/greatings-background.mp4" type="video.mp4" />
+				</video> -->
+				<video
+					class="greatings__background"
+					src="files/video/greatings-background.mp4"
+					autoplay
+					muted
+					loop
+				></video>
 				<div class="container">
 					<div class="greatings__inner">
 						<h1 class="greatings__title">CrypText</h1>
@@ -59,38 +70,94 @@
 							dolore nam deserunt vel ab fuga, facilis beatae consequuntur in quae pariatur incidunt
 							enim. Assumenda error maxime inventore ut.
 						</h2>
-						<button class="greatings__button-more" type="button">How does it work?</button>
 						<button class="button__try greatings__button-try" type="button">Try now!</button>
 					</div>
 				</div>
 			</section>
-			<section class="how">
+			<section class="how" id="how">
+				<!-- <img class="how__background" src="img/icons/icons.svg#how-low-pol-v" alt=""> -->
 				<div class="container">
 					<div class="how__inner">
 						<h2 class="title how__title">How does it work?</h2>
 						<p class="subtitle how__subtitle">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.
+							Our service allows you to create an encrypted image for storing confidential
+							information.
 						</p>
-						<!-- Slider -->
 						<div class="how__list">
-							<div class="how__item">
-								<img class="how__item-img" src="" alt="" />
+							<div class="how__item-enc item">
+								<span class="item__text"
+									>The encryption process is quite simple. Follow these steps to encrypt:</span
+								>
 							</div>
-							<div class="how__item">
-								<img class="how__item-img" src="" alt="" />
+							<div class="how__item-enc item">
+								<span class="item__step">01</span>
+								<p class="item__caption">Upload an image</p>
+								<span class="item__text">
+									Select any image in JPEG, GIF, or PNG format with a size of at least 1024 x 1024
+									pixels.
+								</span>
 							</div>
-							<div class="how__item">
-								<img class="how__item-img" src="" alt="" />
+							<div class="how__item-enc item">
+								<span class="item__step">02</span>
+								<p class="item__caption">Write the text</p>
+								<span class="item__text">
+									Add the text you want to encrypt. The higher the resolution, the more characters
+									can be encrypted.
+								</span>
 							</div>
-							<div class="how__item">
-								<img class="how__item-img" src="" alt="" />
+							<div class="how__item-enc item">
+								<span class="item__step">03</span>
+								<p class="item__caption">Generate a key-password</p>
+								<span class="item__text">
+									Our key generator will help you create a secure key-password, or you can enter
+									your own.
+								</span>
+							</div>
+							<div class="how__item-enc item">
+								<span class="item__step">04</span>
+								<p class="item__caption">Save the result</p>
+								<span class="item__text">
+									Confirming the creation of the encrypted image and download it or copy it to the
+									clipboard. Don't forget to save the key-password.
+								</span>
 							</div>
 						</div>
-						<button class="button__try how__button-try" type="button">Try now!</button>
+						<div class="how__list">
+							<div class="how__item-dec item">
+								<span class="item__text">
+									To view the information encrypted in the image, follow these steps:
+								</span>
+							</div>
+							<div class="how__item-dec item">
+								<span class="item__step">01</span>
+								<p class="item__caption">Upload the image</p>
+								<span class="item__text"> Select the image you wish to decrypt. </span>
+							</div>
+							<div class="how__item-dec item">
+								<span class="item__step">02</span>
+								<p class="item__caption">Enter the key-password</p>
+								<span class="item__text">
+									Enter the key-password that was used to encrypt the data.
+								</span>
+							</div>
+							<div class="how__item-dec item">
+								<span class="item__step">03</span>
+								<p class="item__caption">Confirm decryption</p>
+								<span class="item__text">
+									After entering the key-password, confirm the decryption, and you will gain access
+									to the decrypted data.
+								</span>
+							</div>
+						</div>
+						<p class="subtitle how__underlist">
+							"The image that tells your secrets only to you."
+
+							<button class="button__try how__button-try" type="button">Try now!</button>
+						</p>
 					</div>
 				</div>
 			</section>
-			<section class="why">
+			<section class="why" id="why">
 				<div class="container">
 					<div class="why__inner">
 						<h2 class="title why__title">Why it's useful?</h2>
@@ -102,10 +169,11 @@
 							<li class="why__item">Lorem ipsum dolor sit amet. Lorem, ipsum dolor.</li>
 							<li class="why__item">Lorem ipsum dolor sit amet. lirem2</li>
 						</ul>
+						<button class="button__try greatings__button-try" type="button">Try now!</button>
 					</div>
 				</div>
 			</section>
-			<section class="try">
+			<section class="try" id="try">
 				<div class="container">
 					<div class="try__inner">
 						<h2 class="title try__title">Try it yourself</h2>
@@ -204,7 +272,8 @@
 											</div>
 											<div class="inputs__character-container">
 												<p class="inputs__available-character">
-													Only Latin letters, numbers and punctuation marks are available for message encryption. 
+													Only Latin letters, numbers and punctuation marks are available for
+													message encryption.
 												</p>
 												<div class="inputs__entered-character" id="entered-cherecter"></div>
 											</div>
@@ -254,7 +323,10 @@
 													/>
 												</button>
 											</div>
-											<p class="inputs__available-character">The KEY must be 8 characters long and only contain the following characters: <span style="font-weight: 600;">0-9 a-z A-Z -!#$&:?|</span></p>
+											<p class="inputs__available-character">
+												The KEY must be 8 characters long and only contain the following characters:
+												<span style="font-weight: 600">0-9 a-z A-Z -!#$&:?|</span>
+											</p>
 										</div>
 										<button
 											class="inputs__key-encrypt inputs__button-confirm"
@@ -377,7 +449,7 @@
 		</main>
 		<footer class="footer"></footer>
 
-		<script src="js/app.min.js?_v=20231023191507"></script>
+		<script src="js/app.min.js?_v=20231026005422"></script>
 		<script></script>
 	</body>
 </html>
